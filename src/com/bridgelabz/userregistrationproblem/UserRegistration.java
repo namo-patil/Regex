@@ -5,38 +5,56 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-    static Scanner scanner = new Scanner(System.in);
-    static Pattern pattern;
-    static Matcher matcher;
-    //static String testString;
+    private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
+    private static final String EMAIL_PATTERN = "^[a-z]+[_+-.]?[0-9a-z]+?[@][0-9a-z]+[.][a-z]+([.][a-z]+)?[,]?";
+    static boolean result;
+
+    private static boolean patternChecker(String fieldPattern) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        Pattern pattern = Pattern.compile(fieldPattern);
+        Matcher matcher = pattern.matcher(input);
+        result = matcher.matches();
+        return result;
+    }
 
     private static void validFirstName() {
-        pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
         System.out.println("Enter First Name : ");
-        String firstName = scanner.nextLine();
-        matcher = pattern.matcher(firstName);
-        if (matcher.matches()) {
+        patternChecker(NAME_PATTERN);
+        if (result) {
             System.out.println("Valid");
         } else {
             System.out.println("Not-Valid");
+            validFirstName();
         }
     }
 
     private static void validLastName() {
-        pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
         System.out.println("Enter Last Name : ");
-        String lastName = scanner.nextLine();
-        matcher = pattern.matcher(lastName);
-        if (matcher.matches()) {
+        patternChecker(NAME_PATTERN);
+        if (result) {
             System.out.println("Valid");
         } else {
             System.out.println("Not-Valid");
+            validLastName();
+        }
+    }
+
+    private static void enterValidEmail() {
+        System.out.println("Enter E-mail Id :");
+        patternChecker(EMAIL_PATTERN);
+        if (result) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Not-Valid");
+            enterValidEmail();
         }
     }
 
     public static void main(String[] args) {
         validFirstName();
         validLastName();
+        enterValidEmail();
     }
 }
 
