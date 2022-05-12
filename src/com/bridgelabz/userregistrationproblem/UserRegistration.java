@@ -8,7 +8,7 @@ public class UserRegistration {
     private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
     private static final String EMAIL_PATTERN = "^[a-z]+[_+-.]?[0-9a-z]+?[@][0-9a-z]+[.][a-z]+([.][a-z]+)?[,]?";
     private static final String MOBILE_NUMBER_PATTERN = "^[0-9]{2}\s[789][0-9]{9}";
-    private static final String PASSWORD_PATTERN = "[a-z]{8,}";
+    private static final String PASSWORD_PATTERN = "[a-zA-Z]{8,}";
     static boolean result;
 
     private static boolean patternChecker(String fieldPattern) {
@@ -63,8 +63,9 @@ public class UserRegistration {
             mobileNumberWithCountryCode();
         }
     }
-    private static void passwordFollowedByRule1(){
-        System.out.println("Enter Characters : ");
+
+    private static void passwordFollowedByRule1() {
+        System.out.println("Enter Password : ");
         patternChecker(PASSWORD_PATTERN);
         if (result) {
             System.out.println("Valid");
@@ -74,12 +75,24 @@ public class UserRegistration {
         }
     }
 
+    private static void passwordFollowedByRule2() {
+        System.out.println("Enter Password : ");
+        patternChecker(PASSWORD_PATTERN);
+        if (result) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Password should have atleast 1 upper case character");
+            passwordFollowedByRule2();
+        }
+    }
+
     public static void main(String[] args) {
-//        validFirstName();
-//        validLastName();
-//        enterValidEmail();
-//        mobileNumberWithCountryCode();
+        validFirstName();
+        validLastName();
+        enterValidEmail();
+        mobileNumberWithCountryCode();
         passwordFollowedByRule1();
+        passwordFollowedByRule2();
     }
 }
 
