@@ -5,12 +5,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+    static Scanner scanner = new Scanner(System.in);
+    static Pattern pattern;
+    static Matcher matcher;
+    //static String testString;
+
     private static void validFirstName() {
-        Scanner scanner = new Scanner(System.in);
-        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}");
+        pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
         System.out.println("Enter First Name : ");
-        String testString = scanner.nextLine();
-        Matcher matcher = pattern.matcher(testString);
+        String firstName = scanner.nextLine();
+        matcher = pattern.matcher(firstName);
+        if (matcher.matches()) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Not-Valid");
+        }
+    }
+
+    private static void validLastName() {
+        pattern = Pattern.compile("^[A-Z][a-z]{2,}$");
+        System.out.println("Enter Last Name : ");
+        String lastName = scanner.nextLine();
+        matcher = pattern.matcher(lastName);
         if (matcher.matches()) {
             System.out.println("Valid");
         } else {
@@ -20,6 +36,7 @@ public class UserRegistration {
 
     public static void main(String[] args) {
         validFirstName();
+        validLastName();
     }
 }
 
