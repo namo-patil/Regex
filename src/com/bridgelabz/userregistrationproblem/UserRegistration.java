@@ -99,6 +99,7 @@ public class UserRegistration {
             passwordFollowedByRule3();
         }
     }
+
     private static void passwordFollowedByRule4() {
         passwordPattern = "^\\w(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%&!^*+-?.,_]).{8,}$";
         System.out.println("Enter Password : ");
@@ -106,7 +107,7 @@ public class UserRegistration {
         if (result) {
             System.out.println("Valid");
         } else {
-            System.out.println("Password has exactly 1 special character");
+            System.out.println("Password should have special character");
             passwordFollowedByRule4();
         }
     }
