@@ -8,10 +8,6 @@ public class UserRegistration {
     private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}$";
     private static final String EMAIL_PATTERN = "^[a-z]+[_+-.]?[0-9a-z]+?[@][0-9a-z]+[.][a-z]+([.][a-z]+)?[,]?";
     private static final String MOBILE_NUMBER_PATTERN = "^[0-9]{2}\s[789][0-9]{9}";
-<<<<<<< Updated upstream
-    private static final String PASSWORD_PATTERN = "[a-z]{8,}";
-=======
->>>>>>> Stashed changes
     static boolean result;
     private static String passwordPattern;
 
@@ -67,17 +63,11 @@ public class UserRegistration {
             mobileNumberWithCountryCode();
         }
     }
-<<<<<<< Updated upstream
-    private static void passwordFollowedByRule1(){
-        System.out.println("Enter Characters : ");
-        patternChecker(PASSWORD_PATTERN);
-=======
 
     private static void passwordFollowedByRule1() {
         passwordPattern = ".{8,}";
         System.out.println("Enter Password : ");
         patternChecker(passwordPattern);
->>>>>>> Stashed changes
         if (result) {
             System.out.println("Valid");
         } else {
@@ -87,10 +77,10 @@ public class UserRegistration {
     }
 
     public static void main(String[] args) {
-//        validFirstName();
-//        validLastName();
-//        enterValidEmail();
-//        mobileNumberWithCountryCode();
+        validFirstName();
+        validLastName();
+        enterValidEmail();
+        mobileNumberWithCountryCode();
         passwordFollowedByRule1();
     }
 }
