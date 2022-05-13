@@ -107,6 +107,7 @@ public class UserRegistration {
         mobileNumberWithCountryCode();
         passwordFollowedByRule1();
         passwordFollowedByRule2();
+        passwordFollowedByRule3();
     }
 }
 
