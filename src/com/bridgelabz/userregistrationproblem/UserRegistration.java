@@ -76,6 +76,7 @@ public class UserRegistration {
     }
 
     private static void passwordFollowedByRule2() {
+        passwordPattern = "(?=.*[A-Z]).{8,}";
         System.out.println("Enter Password : ");
         patternChecker(PASSWORD_PATTERN);
         if (result) {
