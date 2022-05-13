@@ -99,6 +99,17 @@ public class UserRegistration {
             passwordFollowedByRule3();
         }
     }
+    private static void passwordFollowedByRule4() {
+        passwordPattern = "^\\w(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%&!^*+-?.,_]).{8,}$";
+        System.out.println("Enter Password : ");
+        patternChecker(passwordPattern);
+        if (result) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Password has exactly 1 special character");
+            passwordFollowedByRule4();
+        }
+    }
 
     public static void main(String[] args) {
         validFirstName();
@@ -108,6 +119,7 @@ public class UserRegistration {
         passwordFollowedByRule1();
         passwordFollowedByRule2();
         passwordFollowedByRule3();
+        passwordFollowedByRule4();
     }
 }
 
