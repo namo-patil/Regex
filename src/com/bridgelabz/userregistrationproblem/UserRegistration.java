@@ -88,6 +88,18 @@ public class UserRegistration {
         }
     }
 
+    private static void passwordFollowedByRule3() {
+        passwordPattern = "(?=.*[0-9])(?=.*[A-Z]).{8,}";
+        System.out.println("Enter Password : ");
+        patternChecker(passwordPattern);
+        if (result) {
+            System.out.println("Valid");
+        } else {
+            System.out.println("Password should have at least 1 numeric number");
+            passwordFollowedByRule3();
+        }
+    }
+
     public static void main(String[] args) {
         validFirstName();
         validLastName();
